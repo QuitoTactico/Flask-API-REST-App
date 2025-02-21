@@ -14,6 +14,9 @@ from models import UserModel
 from schemas import UserSchema
 from blocklist import BLOCKLIST
 
+import os
+import requests
+
 
 blp = Blueprint("Users", "users", description="Operations on users")
 
@@ -94,3 +97,17 @@ class TokenRefresh(MethodView):
         jti = get_jwt()["jti"]
         BLOCKLIST.add(jti)
         return {"access_token": new_token}, 200
+
+
+def send_simple_message(to, subject, body):
+    domain = os.getenv("MAILGUN_DOMAIN")
+    return requests.post(
+        f"https://api.mailgun.net/v3/{domain}/messages",
+        auth=("api", os.getenv("MAILGUN_API_KEY")),
+        data={
+            "from": f"Your Name <mailgun@{domain}>",
+            "to": [to],
+            "subject": subject,
+            "text": body,
+        },
+    )
