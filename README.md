@@ -3,7 +3,7 @@ This is the result of a full course.
 API Accesible via: https://flask-api-rest-app.onrender.com
 
 All the steps, documentation and previous versions are here:
-https://github.com/QuitoTactico/Data-Engineering-Training-on-Globant/tree/main/Udemy%202%20-%20REST%20APIs%20with%20Flask%20and%20Python%20in%202025
+https://github.com/QuitoTactico/Courses-and-Certifications/tree/main/02%20-%20Udemy%20-%20REST%20APIs%20with%20Flask%20and%20Python%20in%202025
 
 
 > I kinda skipped the use of postgress...
